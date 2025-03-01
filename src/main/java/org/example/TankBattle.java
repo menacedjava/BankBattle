@@ -86,57 +86,57 @@ public class TankBattle extends JPanel implements ActionListener {
             g.fillRect(enemy.x, enemy.y, 40, 40);
         }
     }
-//
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        if (playerDirection.equals("UP")) playerY -= playerSpeed;
-//        if (playerDirection.equals("DOWN")) playerY += playerSpeed;
-//        if (playerDirection.equals("LEFT")) playerX -= playerSpeed;
-//        if (playerDirection.equals("RIGHT")) playerX += playerSpeed;
-//
-//        playerX = Math.max(0, Math.min(760, playerX));
-//        playerY = Math.max(0, Math.min(560, playerY));
-//
-//        // O‘qlarni harakatlantirish
-//        bullets.removeIf(bullet -> {
-//            bullet.move();
-//            return bullet.isOutOfBounds();
-//        });
-//
-//        // Dushman tanklarini harakatlantirish
-//        for (EnemyTank enemy : enemies) {
-//            enemy.move();
-//        }
-//
-//        // O‘qlarni tekshirish
-//        for (int i = 0; i < bullets.size(); i++) {
-//            Bullet bullet = bullets.get(i);
-//            for (int j = 0; j < enemies.size(); j++) {
-//                EnemyTank enemy = enemies.get(j);
-//                if (new Rectangle(bullet.x, bullet.y, 5, 5).intersects(new Rectangle(enemy.x, enemy.y, 40, 40))) {
-//                    bullets.remove(i);
-//                    enemies.remove(j);
-//                    break;
-//                }
-//            }
-//        }
-//
-//        // Agar barcha dushman tanklari yo‘q qilinsa
-//        if (enemies.isEmpty()) {
-//            gameOver = true;
-//            timer.stop();
-//        }
-//
-//        repaint();
-//    }
-//
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame("Tank Battle");
-//        TankBattle game = new TankBattle();
-//        frame.add(game);
-//        frame.pack();
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setVisible(true);
-//        frame.setLocationRelativeTo(null);
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (playerDirection.equals("UP")) playerY -= playerSpeed;
+        if (playerDirection.equals("DOWN")) playerY += playerSpeed;
+        if (playerDirection.equals("LEFT")) playerX -= playerSpeed;
+        if (playerDirection.equals("RIGHT")) playerX += playerSpeed;
+
+        playerX = Math.max(0, Math.min(760, playerX));
+        playerY = Math.max(0, Math.min(560, playerY));
+
+
+        bullets.removeIf(bullet -> {
+            bullet.move();
+            return bullet.isOutOfBounds();
+        });
+
+
+        for (EnemyTank enemy : enemies) {
+            enemy.move();
+        }
+
+
+        for (int i = 0; i < bullets.size(); i++) {
+            Bullet bullet = bullets.get(i);
+            for (int j = 0; j < enemies.size(); j++) {
+                EnemyTank enemy = enemies.get(j);
+                if (new Rectangle(bullet.x, bullet.y, 5, 5).intersects(new Rectangle(enemy.x, enemy.y, 40, 40))) {
+                    bullets.remove(i);
+                    enemies.remove(j);
+                    break;
+                }
+            }
+        }
+
+
+        if (enemies.isEmpty()) {
+            gameOver = true;
+            timer.stop();
+        }
+
+        repaint();
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Tank Battle");
+        TankBattle game = new TankBattle();
+        frame.add(game);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 }
