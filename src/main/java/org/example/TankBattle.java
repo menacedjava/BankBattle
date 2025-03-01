@@ -44,17 +44,17 @@ public class TankBattle extends JPanel implements ActionListener {
         timer = new Timer(20, this);
         timer.start();
     }
-//
-//    private void resetGame() {
-//        playerX = 400;
-//        playerY = 500;
-//        bullets.clear();
-//        enemies.clear();
-//        enemies.add(new EnemyTank(400, 100));
-//        enemies.add(new EnemyTank(200, 200));
-//        gameOver = false;
-//        timer.start();
-//    }
+
+    private void resetGame() {
+        playerX = 400;
+        playerY = 500;
+        bullets.clear();
+        enemies.clear();
+        enemies.add(new EnemyTank(400, 100));
+        enemies.add(new EnemyTank(200, 200));
+        gameOver = false;
+        timer.start();
+    }
 //
 //    @Override
 //    protected void paintComponent(Graphics g) {
