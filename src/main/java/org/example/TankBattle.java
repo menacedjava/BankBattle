@@ -14,36 +14,36 @@ public class TankBattle extends JPanel implements ActionListener {
     private ArrayList<EnemyTank> enemies;
     private boolean gameOver = false;
 
-//    public TankBattle() {
-//        setPreferredSize(new Dimension(800, 600));
-//        setBackground(Color.BLACK);
-//        setFocusable(true);
-//        bullets = new ArrayList<>();
-//        enemies = new ArrayList<>();
-//        enemies.add(new EnemyTank(400, 100));
-//        enemies.add(new EnemyTank(200, 200));
-//
-//        addKeyListener(new KeyAdapter() {
-//            @Override
-//            public void keyPressed(KeyEvent e) {
-//                if (gameOver && e.getKeyCode() == KeyEvent.VK_R) {
-//                    resetGame();
-//                }
-//
-//                switch (e.getKeyCode()) {
-//                    case KeyEvent.VK_W -> playerDirection = "UP";
-//                    case KeyEvent.VK_S -> playerDirection = "DOWN";
-//                    case KeyEvent.VK_A -> playerDirection = "LEFT";
-//                    case KeyEvent.VK_D -> playerDirection = "RIGHT";
-//                    case KeyEvent.VK_SPACE ->
-//                            bullets.add(new Bullet(playerX + 20, playerY + 20, playerDirection, false));
-//                }
-//            }
-//        });
-//
-//        timer = new Timer(20, this);
-//        timer.start();
-//    }
+    public TankBattle() {
+        setPreferredSize(new Dimension(800, 600));
+        setBackground(Color.BLACK);
+        setFocusable(true);
+        bullets = new ArrayList<>();
+        enemies = new ArrayList<>();
+        enemies.add(new EnemyTank(400, 100));
+        enemies.add(new EnemyTank(200, 200));
+
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (gameOver && e.getKeyCode() == KeyEvent.VK_R) {
+                    resetGame();
+                }
+
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_W -> playerDirection = "UP";
+                    case KeyEvent.VK_S -> playerDirection = "DOWN";
+                    case KeyEvent.VK_A -> playerDirection = "LEFT";
+                    case KeyEvent.VK_D -> playerDirection = "RIGHT";
+                    case KeyEvent.VK_SPACE ->
+                            bullets.add(new Bullet(playerX + 20, playerY + 20, playerDirection, false));
+                }
+            }
+        });
+
+        timer = new Timer(20, this);
+        timer.start();
+    }
 //
 //    private void resetGame() {
 //        playerX = 400;
