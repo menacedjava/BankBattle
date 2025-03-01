@@ -55,37 +55,37 @@ public class TankBattle extends JPanel implements ActionListener {
         gameOver = false;
         timer.start();
     }
-//
-//    @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-//
-//        // Chizish
-//        if (gameOver) {
-//            g.setColor(Color.RED);
-//            g.setFont(new Font("Arial", Font.BOLD, 40));
-//            g.drawString("GAME OVER!", 300, 250);
-//            g.setFont(new Font("Arial", Font.BOLD, 20));
-//            g.drawString("Press 'R' to Restart", 320, 300);
-//            return;
-//        }
-//
-//        // O‘yinchi tanki
-//        g.setColor(Color.GREEN);
-//        g.fillRect(playerX, playerY, 40, 40);
-//
-//        // O‘qlar
-//        g.setColor(Color.YELLOW);
-//        for (Bullet bullet : bullets) {
-//            g.fillRect(bullet.x, bullet.y, 5, 5);
-//        }
-//
-//        // Dushman tanklari
-//        g.setColor(Color.RED);
-//        for (EnemyTank enemy : enemies) {
-//            g.fillRect(enemy.x, enemy.y, 40, 40);
-//        }
-//    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+
+        if (gameOver) {
+            g.setColor(Color.RED);
+            g.setFont(new Font("Arial", Font.BOLD, 40));
+            g.drawString("GAME OVER!", 300, 250);
+            g.setFont(new Font("Arial", Font.BOLD, 20));
+            g.drawString("Press 'R' to Restart", 320, 300);
+            return;
+        }
+
+
+        g.setColor(Color.GREEN);
+        g.fillRect(playerX, playerY, 40, 40);
+
+
+        g.setColor(Color.YELLOW);
+        for (Bullet bullet : bullets) {
+            g.fillRect(bullet.x, bullet.y, 5, 5);
+        }
+
+
+        g.setColor(Color.RED);
+        for (EnemyTank enemy : enemies) {
+            g.fillRect(enemy.x, enemy.y, 40, 40);
+        }
+    }
 //
 //    @Override
 //    public void actionPerformed(ActionEvent e) {
